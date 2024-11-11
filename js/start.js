@@ -13,5 +13,9 @@ show.addEventListener('mouseover', function(e) {
 console.log(show); /*변수의 값을 보여줌*/
 
 function deleteFunc() {
- alert('삭제버튼을 클릭했습니다.') /*alert : 알림창*/
+ alert('삭제버튼을 클릭했습니다.'); /*alert : 알림창*/
 }
+
+// console.log()
+// document.write()
+document.write('<ul><li>Apple</li><li>Banana</li></ul>');
