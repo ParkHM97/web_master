@@ -27,3 +27,4 @@
 //     sum += numAry[i];
 //   }
 // } console.log(`홀수의 합은 ${sum} 입니다.`);
+
