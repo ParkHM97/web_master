@@ -33,3 +33,4 @@ document.querySelector('#changeImg').addEventListener('click', function() { // q
   let imageName = imgAry[idx++];
   document.querySelector('img').src = 'image/' + imageName;
 });
+

@@ -47,14 +47,59 @@
         // for (let i = 0; i <= 6; i++){
         // console.log(parseInt(Math.random() * 45));
         // } 
-        let i = 1;
-        document.querySelector('#btn').addEventListener('click', function() {
-            for (; i <= 6; i++) {
-                let numberAry = console.log(parseInt(Math.random() * 45) + 1);
-                document.querySelector('div').innerHTML = numberAry;
+        //     let numberAry = [];
+        //     document.querySelector('#btn').addEventListener('click', (e)=>{
+        //          for (let i = 1; i <= 6; i++) {
+        //             let randomR = parseInt(Math.random() * 45 + 1);
+        //             numberAry.push = randomR[i];
+        //             console.log(`로또 번호는 ${randomR} 입니다.`);
+        //             document.querySelector('#lotto').innerHTML += '<span>' + randomR + '</span>';
+        //             if (numberAry.length > 6) {
+
+        //             } 
+        //         }
+        //     }       
+        // )
+
+
+        document.querySelector('#btn').addEventListener('click', (e) => { // button을 클릭하는 이벤트 
+            let ary = generateNumber(); // 6번 반복하면서 span 태그에 넣어야함 (번호 6개 생성)
+            let str = ''; // 초기값 지정... 문자열로 만듦 
+            for (let i = 0; i < ary.length; i++) {
+                str += '<span>' + ary[i] + '</span>';
             }
-            return numberAry; 
-        }) 
+
+            document.querySelector('#lotto').innerHTML = str; // 6개의 숫자를 innerHTML로 삽입하는 반복문 
+
+        })
+
+        function generateNumber() {
+            let numAry = [];
+            for (let i = 0; i < 6;) {
+                let temp = parseInt(Math.random() * 45 + 1);
+                if(dupValueCheck(numAry, temp) == -1){
+                    numAry[i] = (temp); // 6개의 숫자를 생성하는 반복문 
+                    i++; // 추가할 경우에만 i를 증가시킴 
+                } 
+            }
+            return numAry;
+        }
+        // 중복값 체크하는 함수 
+
+        function dupValueCheck(ary = [], checkNum = 10) {
+            // 배열, 값 체크 기능 
+            // 배열에 찾는 값이 있으면 인덱스값을 반환, -1 반환
+            for (let i = 0; i < ary.length; i++) {
+                if(ary[i] == checkNum){ // 찾는 값이 있다는 의미 
+                    return i;
+                }
+            }
+            return -1; // 찾는값이 없음
+        }
+
+        // let tempAry = [20, 45, 30, 17]
+        // let num = 17; 
+        // // console.log(dupValueCheck(tempAry, num));
     </script>
 </body>
 
