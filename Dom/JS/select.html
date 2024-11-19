@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>select</title>
+  <style>
+    #container {
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+    }
+
+    span {
+      display: inline-block;
+      font-size: large;
+      width: 100px;
+      margin: 2px;
+      padding: 1px;
+      border: 1px solid purple;
+    }
+  </style>
+</head>
+
+<body>
+  입력: <input type="text" id="userValue">
+  <button id="deleteword">삭제</button>
+
+  <div id="container">
+
+  </div>
+  <script>
+    let str =
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ullam vitae similique minima, inventore assumenda blanditiis ab commodi et numquam molestias placeat obcaecati. Animi qui quis quaerat inventore dolore officia.'
+    // 공백을 기준으로 잘린 단어들을 새로운 메소드에 담아주는 것 (split)
+    let strAry = str.split(' ');
+    str = ' ';
+    strAry.forEach(word => {
+      let span = document.createElement('span');
+      span.innerText = word;
+      document.querySelector('#container').appendChild(span);
+
+    });
+
+    // let dkey = document.querySelector('deleteword'); 
+
+    document.querySelector('#deleteword').addEventListener('click', (e) => { //삭제 버튼 불러오기
+      document.querySelectorAll('span').forEach((item) => { // span 대상으로 반복문 
+        if (document.querySelector('input').value == item.innerText) { // span 값과 입력값 비교 
+          item.remove();
+        } 
+      })
+      // 입력한 값 초기화
+      document.querySelector('#userValue').value = '';
+    });
+ 
+  </script>
+</body>
+
+</html>
