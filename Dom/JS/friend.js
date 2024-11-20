@@ -10,9 +10,6 @@
 
 // 버블링 캡처링 읽어 보기 
 
-
-
-
 function makeRow(friendInfo = {
   name,
   phone,
@@ -34,7 +31,7 @@ function makeRow(friendInfo = {
   })
 
   // <td><input type="checkbox"></td>
-
+// 전체 선택~~ 
   let td = document.createElement('td');
   let btn = document.createElement('input');
   btn.setAttribute('type', 'checkbox');
@@ -82,6 +79,7 @@ function makeRow(friendInfo = {
     td.innerHTML = fname;
     tr.appendChild(td);
   }
+  
   td = document.createElement('td');
   btn = document.createElement('button');
   btn.innerHTML = '삭제';
@@ -245,19 +243,19 @@ document.querySelector('thead input[type="checkbox"]').addEventListener('change'
 // }
 
 // 정보 저장 버튼을 클릭하면 친구의 정보를 localStorage 에 저장
-document.querySelector('button.btn-info').addEventListener('click', e => {
-  let ary = [];
-  document.querySelectorAll('#list tr').forEach(item => {
-    console.log(item);
-    let name = item.children[1].innerHTML; // 이름
-    let phone = item.children[2].innerHTML; // 연락처
-    let birth = item.children[3].innerHTML; // 생일
-    let btype = item.children[4].innerHTML; // 혈액형
-    let obj = {name, phone, birth, btype}
-    console.log(obj);
-    ary.push(obj);
-  });
-  console.log(ary);
-  let json = JSON.stringify(ary); // 문자열로 변경 
-  localStorage.setItem('friendList', json);
-})
+// document.querySelector('button.btn-info').addEventListener('click', e => {
+//   let ary = [];
+//   document.querySelectorAll('#list tr').forEach(item => {
+//     console.log(item);
+//     let name = item.children[1].innerHTML; // 이름
+//     let phone = item.children[2].innerHTML; // 연락처
+//     let birth = item.children[3].innerHTML; // 생일
+//     let btype = item.children[4].innerHTML; // 혈액형
+//     let obj = {name, phone, birth, btype}
+//     console.log(obj);
+//     ary.push(obj);
+//   });
+//   console.log(ary);
+//   let json = JSON.stringify(ary); // 문자열로 변경 
+//   localStorage.setItem('friendList', json);
+// })

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+
+<body>
+  <select multiple style="height:100px">
+    <option>Row1</option>
+    <option>Row2</option>
+    <option>Row3</option>
+    <option>Row4</option>
+    <option>Row5</option>
+  </select>
+  <button id="moveRight">+</button>
+  <button id="moveLeft">-</button>
+  <select multiple style="height:100px">
+    <option>Row6</option>
+    <option>Row7</option>
+    <option>Row8</option>
+    <option>Row9</option>
+    <option>Row10</option>
+  </select>
+  <script>
+    //
+    // select가 두개 있을 때 선택.. select만 쓰면 첫번째가 선택됨, 2번째 : select:nth-of-type(2)
+    // 첫번째의 두 번째 -> select (1) option: nth-of-type(2)-->
+    // 선택된 값 : .seletedIndex (0부터 시작~~)-->
+    // document.querySelectorAll('select option')-->
+    // document.querySelector('select option')[4].remove() 4번 인덱스 값 삭제
+
+    //   document.querySelector('#moveRight').addEventListener('click', e =>{
+    //   let select = document.querySelectorAll('select option')[document.querySelector('select').selectedIndex]
+    //   document.querySelector('select:nth-of-type(2)').appendChild(select);
+    // });
+
+    //   document.querySelector('#moveLeft').addEventListener('click', e =>{
+    //   let select1 = document.querySelectorAll('select:nth-of-type(2) option')[document.querySelector('select:nth-of-type(2)').selectedIndex]
+    //   document.querySelector('select').appendChild(select1);
+    //   });
+    // let select = document.querySelectorAll('select option')[document.querySelector('select').selectedIndex];
+    
+    // 전체 옮기기 
+    // while이 true인 동안 계속 반복하는데, if문에서 idx 값이 -1이 되면 while 반복문을 종료한다.
+    // -1 은 index의 -1 (선택 안 됨 or 모두 다 옮겨감)
+    document.querySelector('#moveRight').addEventListener('click', e => {
+      let target = document.querySelector('select:nth-of-type(2)');
+      while (true) {
+        let idx = document.querySelector('select').selectedIndex;
+        if (idx == -1) {
+          break;
+        }
+        target.appendChild(document.querySelectorAll('select option')[idx]);
+      }
+    });
+
+    document.querySelector('#moveLeft').addEventListener('click', e => {
+      let target = document.querySelector('select');
+      while (true) {
+        let idx = document.querySelector('select:nth-of-type(2)').selectedIndex;
+        if (idx == -1) {
+          break;
+        }
+        target.appendChild(document.querySelectorAll('select:nth-of-type(2) option')[idx]);
+      }
+    });
+
+
+    //      document.querySelector('#moveRight').appendChild('option');
+    //document.querySelector('option').appendChild(document.querySelector('select:nth-of-type(2)'));
+    //      document.createElement('option');
+
+    //
+  </script>
+</body>
+
+</html>

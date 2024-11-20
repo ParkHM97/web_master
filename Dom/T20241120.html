@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T20241120.html</title>
+  <style>
+    label{
+      size: 10px;
+    }
+    li{
+      list-style-type: none;
+    }
+    th{
+      background-color: yellow;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    <table id="userinput">
+      <tr>
+        <th>도서코드</th>
+        <td><input type="text" id="bookCode" name="bookCode"></td>
+      </tr>
+      <tr>
+        <th>도서명</th>
+        <td><input type="text" id="bookName" name="bookName"></td>
+      </tr>
+      <tr>
+        <th>저자</th>
+        <td><input type="text" id="author" name="author"></td>
+      </tr>
+      <tr>
+        <th>출판사</th>
+        <td><input type="text" id="press" name="press"></td>
+      </tr>
+      <tr>
+        <th>금액</th>
+        <td><input type="text" id="price" name="price"></td>
+      </tr>
+    </table>
+    <div id="submit">
+  <button id = "save">저장</button>
+  <button id = "delete">선택삭제</button>
+</div>
+  <table border="2px">
+    <tbody id = "list">
+  <tr>
+      <td><input type="checkbox"></td>
+      <td>도서코드</td>
+      <td>도서명</td>
+      <td>저자</td>
+      <td>출판사</td>
+      <td>가격</td>
+      <td>삭제</td>
+    </tr>
+  </tbody>
+  </table>
+  <script src="bookList.js"></script>
+  <script src="T20241120.js"></script>
+</div>
+</body>
+</html>
