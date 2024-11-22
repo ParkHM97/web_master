@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap');
+#container {
+  width: 1000px;
+  margin: 0 auto;
+  font-family: "Noto Serif KR", serif;
+}
+header {
+  width: 1000px;
+  height: 550px;
+  text-align: center;
+  background-image: url('/movie/image/헤더.jpg');
+  background-position: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+h1 {
+  line-height: 500px;
+}
+
+section {
+  width: 1000px;
+  height: 250px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+footer {
+  width: 1000px;
+  height: 200px;
+  text-align: center;
+
+}
+
+article {
+  width: 1000px;
+  float: left;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: inline;
+}
+
+a {
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+}
+li{
+  list-style: none;
+  background-color: black;
+  color: white;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+li:hover{
+  background-color: red;
+  color: yellow;
+}
+ul{
+  padding-left: 0px;
+}

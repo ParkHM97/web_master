@@ -34,7 +34,7 @@
   const memberData = JSON.parse(localStorage.getItem('memberData')); 
   // 로그인 버튼 이벤트 등록 
 
-  // console.log(memberData);
+  console.log(memberData);
   // console.log(loginInfo[0].name);
   document.querySelector('button.btn.btn-primary').addEventListener('click', e=>{
     // 로그인 성공하면 welcome 페이지 이동 
@@ -43,17 +43,19 @@
     let pw = document.querySelector('#upw').value; // 필터...
     
     let loginInfo = memberData.filter(member => member.id == id && member.pw == pw); // member : memberData에 들어있는 변수
-
-    if(loginInfo.length){// id, pw가 동일한 정보가 존재한다는 의미 (아이디 비밀번호 일치)
-      localStorage.setItem('logId', id);
-      localStorage.setItem('logName', loginInfo[0].name); // filter로 필터된 값이 배열로 들어가서 0번째가 됨
-      location.href = 'welcome.html';
+    
+    if(loginInfo.length){// 입력한 id와 pw가 서버에도 동일한 정보를 가지고 있기 때문에 0보다 큼 -> true 값을 가짐
+      localStorage.setItem('logId', id); // id를 가져와 logId에 ... 
+      localStorage.setItem('logName', loginInfo[0].name); // 로그인으로 입력한 아이디와 비밀번호는 1개고... 그래서 필터된 배열에도 값이 1개 (0번째로) 들어가 있음 
+      // filter로 필터된 값이 배열로 들어가서 0번째가 됨
+      // location.href = 'welcome.html';
       // console.log(name);
       // 
     
-    } else {
-      alert(`입력정보를 확인하세요.`);
-    }
+    } 
+    // else {
+    //   alert(`입력정보를 확인하세요.`);
+    // }
   })
 </script>
 </body>
