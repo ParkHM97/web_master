@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #movie{
+      border: 1px solid gray;
+      width: 200px;
+      border-radius: 10%;
+      margin: 10px;
+    }
+    dl{
+      margin: 0;
+      padding: 10px;
+    }
+    dt{
+      font-size: smaller;
+      color: gray;
+      margin-left: 10px;
+    }
+    dd{
+      font-size: smaller;
+    }
+    
+    img{
+      width: 180px;
+      border-radius: 10%;
+      padding: 10px;
+    }
+    table{
+      border: 1px black solid;
+      padding: 10px;
+      text-align: center;
+    }
+    td{
+      border: 1px black solid;
+    }
+    p{
+      margin: 0;
+    }
+    dl{
+      text-align: left;
+    }
+    .explan > p{
+      text-align: center;
+    }
+    td{ 
+      padding: 15px;
+
+    }
+  </style>
+</head>
+<body>
+  <div id="movie">
+    <img src="/web_master/movie/image/howl.jpg" alt="하울의 움직이는 성">
+  <dl>
+    <div class="explan">
+      <p>${movie.moviename}</p>
+       <dt>장르</dt>
+       <dd>${movie.genre}</dd>
+    </div>
+    <div class="explan">
+        <dt>평점</dt>
+        <dd>${movie.score}</dd>
+    </div>
+    <div class="explan">
+         <dt>개봉</dt>
+         <dd>${movie.days}</dd>
+    </div>
+ </dl>
+ <table>
+  <tr>
+    <td>예매하기</td>
+    <td>소개</td>
+  </tr>
+ </table>
+</div>
+</body>
+</html>
