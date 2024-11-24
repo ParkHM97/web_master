@@ -11,24 +11,49 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap');
+    body{
+      font-family: "Noto Serif KR", serif;
+      background-color: black;
+    }
+    span > p{
+      color:white;
+      text-align: center;
+      background-color: red;
+      padding: 10px;
+      font-weight: bold;
+    }
+
     
   </style>
 </head>
 
 <body>
-  <h3>영화예매 페이지</h3>
+  <span><p>TICKET BOOK</p></span>
   <a href="main.html">메인페이지로 돌아가기</a>
-  <div>
-    <h4>영화제목</h4>
-    <img src="image/sound.jpg">
 
+  <div class = "container text-center">
+    <div class="row">
+
+    </div>
   </div>
-
-
 
   <script>
     let movieList = JSON.parse(localStorage.getItem('movieList'));
-    console.log(movieList);
+
+    movieList.forEach(movie => {
+    let template = `<div class="col" data-pcode="${movie.moviename}">
+      <div class="card" style="width: 18rem;">
+        <img src="image/${movie.image}" height="300px" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${movie.moviename}</h5>
+          <p class="card-text">${movie.days}<br>${movie.score}</p>
+          <a href="#" class="btn btn-success">예매하기</a>
+        </div>
+      </div>
+    </div>`;
+    document.querySelector('div.row').insertAdjacentHTML('beforeend', template);
+})
   </script>
 </body>
 
