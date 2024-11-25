@@ -15,6 +15,7 @@ const memberList = [{
 }]
 
 const movieList = [{
+  pcode: 'M01',
   moviename: 'Sound of Music',
   days: '1969년 10월',
   score: '★9.60',
@@ -22,6 +23,7 @@ const movieList = [{
   genre: '드라마, 뮤지컬'
   },
   {
+  pcode: 'M02',
   moviename: '하울의 움직이는 성',
   days: '2004년 11월',
   score: '★9.35',
@@ -29,6 +31,7 @@ const movieList = [{
   genre: '판타지'
   },
   {
+  pcode: 'M03',
   moviename: '청설',
   days: '2024년 11월',
   score: '★8.52',
@@ -36,6 +39,7 @@ const movieList = [{
   genre: '로맨스'
   },
   {
+  pcode: 'M04',
   moviename: '천공의 성 라퓨타',
   days: '1986년 08월',
   score: '★8.70',
@@ -43,6 +47,7 @@ const movieList = [{
   genre: '판타지'
   },
   {
+  pcode: 'M05',
   moviename: '파묘',
   days: '2024년 02월',
   score: '★8.21',
@@ -50,6 +55,7 @@ const movieList = [{
   genre: '오컬트'
   },
   {
+  pcode: 'M06',
   moviename: '명량',
   days: '2014년 07월',
   score: '★8.88',

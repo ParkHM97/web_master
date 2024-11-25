@@ -34,7 +34,7 @@
     <script>
       let movieList = JSON.parse(localStorage.getItem('movieList'));
       let mosum = JSON.parse(localStorage.getItem('mosum'));
-      console.log(mosum);
+      // console.log(mosum);
 
 
       movieList.forEach(movie => {
@@ -67,17 +67,25 @@
       movieList = JSON.parse(localStorage.getItem('movieList'));
 
     
-      console.log(mosum);
-      mosum.forEach(mosum => {
-        let templatemov = `<span><p>${mosum.moviename}</p></span>`
-        document.querySelector('p.dsc').insertAdjacentHTML('beforeend', templatemov);
+      // console.log(mosum[1]);
+      // mosum.forEach(mosum => {
+      //   let templatemov = `<span><p>${mosum.moviename}</p></span>`
+      //   document.querySelector('p.dsc').insertAdjacentHTML('beforeend', templatemov);
+      // })
+      // document.querySelector('.intro').addEventListener('click', e=>{
+
+      // })
+
+    document.querySelectorAll('button.intro').forEach(item=>{
+      item.addEventListener('click', e => {
+        console.log(e.target.closest('span.row').children[1].firstElementChild.innerText);
+        let title = e.target.closest('span.row').children[1].firstElementChild.innerText;
+        let text = 'mosum';
+        if (JSON.stringify(movieList['moviename']) == JSON.stringify(title)){
+          document.querySelector('p.dsc').innerText = text;
+        }
       })
-
-
-
-
-
-
+    })
 
 
 
@@ -135,11 +143,11 @@
           document.querySelector(targetID).style.display = 'block';
         });
       }
-      for (var j = 0; j < target.length; j++) {
-        btnPopClose[j].addEventListener('click', function () {
-          this.parentNode.parentNode.style.display = 'none';
-        });
-      }
+      // for (var j = 0; j < target.length; j++) {
+      //   btnPopClose[j].addEventListener('click', function () {
+      //     this.parentNode.parentNode.style.display = 'none';
+      //   });
+      // }
 
       // for (let i = 0; i < target.length; i++) {
       //   target[i].addEventListener('click', function () {
