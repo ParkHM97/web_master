@@ -11,6 +11,9 @@
       border-radius: 10%;
       margin: 10px;
     }
+    div{
+      display: inline-block;
+    }
     dl{
       margin: 0;
       padding: 10px;
@@ -53,29 +56,62 @@
   </style>
 </head>
 <body>
-  <div id="movie">
-    <img src="/web_master/movie/image/howl.jpg" alt="하울의 움직이는 성">
+  <div>
+    <img src="image/${movie.image}" height="300px" class="card-img-top" alt="...">
+
+    <dl>
+        <p>${movie.moviename}</p>
+         <dt>장르</dt>
+         <dd>${movie.genre}</dd>
+          <dt>평점</dt>
+          <dd class="score">${movie.score}</dd>
+           <dt>개봉</dt>
+           <dd>${movie.days}</dd>
+   </dl>
+   <table>
+    <tr>
+      <td><button>예매하기</button></td>
+      <td><button>소개</button></td>
+      </tr>
+      </table>
+</div>
+<div>
+  <img src="image/${movie.image}" height="300px" class="card-img-top" alt="...">
+
   <dl>
-    <div class="explan">
       <p>${movie.moviename}</p>
        <dt>장르</dt>
        <dd>${movie.genre}</dd>
-    </div>
-    <div class="explan">
         <dt>평점</dt>
-        <dd>${movie.score}</dd>
-    </div>
-    <div class="explan">
+        <dd class="score">${movie.score}</dd>
          <dt>개봉</dt>
          <dd>${movie.days}</dd>
-    </div>
  </dl>
  <table>
   <tr>
-    <td>예매하기</td>
-    <td>소개</td>
-  </tr>
- </table>
+    <td><button>예매하기</button></td>
+    <td><button>소개</button></td>
+    </tr>
+    </table>
+</div>
+<div>
+  <img src="image/${movie.image}" height="300px" class="card-img-top" alt="...">
+
+  <dl>
+      <p>${movie.moviename}</p>
+       <dt>장르</dt>
+       <dd>${movie.genre}</dd>
+        <dt>평점</dt>
+        <dd class="score">${movie.score}</dd>
+         <dt>개봉</dt>
+         <dd>${movie.days}</dd>
+ </dl>
+ <table>
+  <tr>
+    <td><button>예매하기</button></td>
+    <td><button>소개</button></td>
+    </tr>
+    </table>
 </div>
 </body>
 </html>

@@ -5,15 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #container{
+      width: 700px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="container">
   <a href="login.html">로그인페이지</a>
-  <script src="/web_master/movie/member.js"></script>
+  <script src="/movie/member.js"></script>
   <script>
     localStorage.setItem('memberList', JSON.stringify(memberList));
     localStorage.setItem('movieList', JSON.stringify(movieList));
+    localStorage.setItem('mosum', JSON.stringify(mosum));
+    localStorage.setItem('moviecart', JSON.stringify(moviecart));
   </script>
+  </div>
 </body>
 
 </html>

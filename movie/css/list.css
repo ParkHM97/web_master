@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap');
+
+body {
+  font-family: "Noto Serif KR", serif;
+  background-color: white;
+}
+
+#container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#movie {
+  border-radius: 10%;
+  margin: 10px;
+
+}
+
+.row {
+  display: inline-block;
+  border: 1px solid gray;
+  width: 220px;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+
+span>p {
+  color: black;
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+  font-weight: bold;
+}
+
+span>img {
+  vertical-align: middle;
+}
+
+dl {
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  display: block;
+  width: 200px;
+}
+
+dl>p {
+  font-size: large
+}
+
+div.text-center span.row:nth-child(n+4):nth-child(-n+6) {
+  margin-top: 10px;
+}
+
+dt {
+  font-size: medium;
+  color: gray;
+  margin-left: 10px;
+}
+
+dd {
+  font-size: medium;
+
+}
+
+p {
+  text-align: center;
+  font-weight: bold;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+img {
+  width: 200px;
+  height: 300px;
+  border-radius: 10%;
+  margin: 10px;
+}
+
+table {
+
+  padding: 10px;
+  text-align: center;
+  margin-left: 15px;
+}
+
+td {
+  padding: 15px;
+}
+
+.score {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrap {
+  padding: 10px;
+}
+
+.pop_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .5);
+  font-size: 0;
+  text-align: center;
+}
+
+.pop_wrap:after {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  content: '';
+}
+
+.popin {
+  display: inline-block;
+  padding: 20px 30px;
+  background: #fff;
+  width: 200px;
+  vertical-align: middle;
+  font-size: 15px;
+}
