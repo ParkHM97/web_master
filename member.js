@@ -134,6 +134,7 @@ const movieList = [{
      12척의 조선 vs 330척의 왜군 역사를 바꾼 위대한 전쟁이 시작된다!`
   }]
   const moviecart = [{
+    pcode: 'M02',
     userid: 'user01',
     moviename: '하울의 움직이는 성',
     Price: 12000,
@@ -142,15 +143,17 @@ const movieList = [{
     qty: 1
   },
   {
+    pcode: 'M04',
     userid: 'user01',
-    moviename: '하울의 움직이는 성',
-    Price: 8000,
-    image: 'howl.jpg',
+    moviename: '천공의 성 라퓨타',
+    Price: 12000,
+    image: 'Rafuta.jpg',
     age: 'child',
     qty: 2
   },
   {
-    post: 'user02',
+    pcode: 'M03',
+    userid: 'user02',
     moviename: '청설',
     Price: 12000,
     image: 'cheong.jpg',
@@ -158,7 +161,8 @@ const movieList = [{
     qty: 2
   },
   {
-    post: 'user03',
+    pcode: 'M05',
+    userid: 'user03',
     moviename: '파묘',
     Price: 12000,
     image: 'pamyo.jpg',
@@ -166,8 +170,9 @@ const movieList = [{
     qty: 3
   },
   {
-    post: 'user03',
-    moviename: '천공의 성 라퓨타',
+    pcode: 'M06',
+    userid: 'user03',
+    moviename: '명량',
     Price: 8000,
     age: 'child',
     qty: 2

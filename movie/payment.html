@@ -5,7 +5,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/payment.css">
+  <link rel="stylesheet" href="payment.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>결제</title>
 
@@ -106,7 +106,7 @@
   const myCart = moviecart.filter(cart => cart.userid == loginId);
  
   myCart.forEach(cart => {
-    let prod = moviecart.filter(prod => cart.moviename == prod.moviename)[0];
+    let prod = moviecart.filter(prod => cart.pcode == prod.pcode)[0];
     let template = `<tr data-pcode="${cart.code}">
                             <th scope="row">
                                 <div class="d-flex align-items-center">

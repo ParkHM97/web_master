@@ -73,12 +73,13 @@ function makeRow(friendInfo = {
   td.appendChild(btn);
   tr.appendChild(td);
 
+
   for (let prop in friendInfo) {
     let td = document.createElement('td');
     let fname = friendInfo[prop];
     td.innerHTML = fname;
     tr.appendChild(td);
-  }
+  } // 자료 불러오는 기능임
   
   td = document.createElement('td');
   btn = document.createElement('button');
@@ -93,6 +94,8 @@ function makeRow(friendInfo = {
 
   return tr;
 }
+// 자료 불러오는 기능임
+
 
 friendList.forEach((e) => {
   document.querySelector('#list').appendChild(makeRow(e));

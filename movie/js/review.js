@@ -1,62 +1,83 @@
-const commentBtn = document.querySelector("#commentFrm");
-const commentList = document.querySelector("#comment-list");
-const total = document.querySelector("h4 > span");
-const list = [];
 
-function Comment(content) {
-  this.userid = "cloudcoke";
-  this.content = content;
-  this.date = "2024-11-26";
-}
+// let plus = document.querySelector('.btn').addEventListener('click', e => {
+//   // console.log(e);
+//   let tr = document.createElement('tr');
+//   let td = document.createElement('td');
+//   let reviewtd = document.querySelector('.int').value;
+//   let moviename = document.querySelector('select').value;
+//   let vudwja = document.querySelector('.slider').value;
+//   console.log(td)
+//   td.innerHTML = reviewtd
+//   tr.appendChild(td);
+// }) 
 
-function createRow(userid, content, date) {
-  const ul = document.createElement("ul");
-  const li1 = document.createElement("li");
-  const li2 = document.createElement("li");
-  const li3 = document.createElement("li");
+// document.querySelector('#list').appendChild(tr);
 
-  ul.append(li1);
-  ul.append(li2);
-  ul.append(li3);
+// function newElement() {
+//   let newtr = document.createElement('tr');
+//   let newtd = document.createElement('td');
+//   newtd.innerText = document.querySelector('.int').value;
+//   newtr.appendChild(newtd);
+//   document.querySelector('#list').appendChild(newli);
+//   let span = document.createElement('span');
+//   span.innerText = '×';
+//   span.setAttribute('class', 'close');
+//   newli.appendChild(span);
 
-  ul.setAttribute("class", "comment-row");
-  li1.setAttribute("class", "comment-id");
-  li2.setAttribute("class", "comment-content");
-  li3.setAttribute("class", "comment-date");
+//   newli.addEventListener('click', e => {
+//           // console.log(e.target);
+//     // li 영역, span 영역 구분해야... 
+//     if(e.target.tagName == "LI"){
+//     // console.log(li.getAttribute('class')); // getAttribute : 속성을 가져옴 / setAttribute : 속성을 추가함
+//     if(newli.getAttribute('class', 'checked')){   // null : 체크되지 않은 걸 의미함 // checked : 체크됨  
+//       newli.setAttribute('class', 'null');  // null이 반환되면 check로 바꾸고 
+//     } else {
+//       newli.setAttribute('class', 'checked'); // check가 반환되면 null로 바꿈
+//     }
+//   } else if (e.target.tagName == "SPAN") {
+//    newli.style.display = 'none'; 
+//   }
+//   })
+// };
 
-  li1.innerHTML = userid;
-  li2.innerHTML = content;
-  li3.innerHTML = date;
+// // 위의 입력창에 입력하면 아래 li에 appendChild 예정
+// document.querySelectorAll('ul li').forEach(li => {
+//   let span = document.createElement('span');
+//   span.innerText = '×';
+//   span.setAttribute('class', 'close'); 
+//   li.appendChild(span); // li 자식 요소로 span 삽입
+//   // li 태그에 이벤트 등록 (클릭)
+//   li.addEventListener('click', (e) => {
+//     // console.log(e.target);
+//     // li 영역, span 영역 구분해야... 
+//     if(e.target.tagName == "LI"){
+//     // console.log(li.getAttribute('class')); // getAttribute : 속성을 가져옴 / setAttribute : 속성을 추가함
+ 
+//     if(li.getAttribute('class') == null || li.getAttribute('class') == 'null'){   // null : 체크되지 않은 걸 의미함 // checked : 체크됨  
+//       li.setAttribute('class', 'checked');  // null이 반환되면 check로 바꾸고 
+//     } else {
+//       li.setAttribute('class', null); // check가 반환되면 null로 바꿈
+//     }
+//   } else if (e.target.tagName == "SPAN") {
+//    li.style.display = 'none'; 
+//   }
+//   })
+// })
 
-  return ul;
-}
+// function newElement() {
 
-function drawing() {
-  commentList.innerHTML = "";
-  for (let i = list.length - 1; i >= 0; i--) {
-    const row = createRow(list[i].userid, list[i].content, list[i].date);
-    commentList.append(row);
-  }
-}
+  // document.querySelector('.btn').addEventListener('click', e => {
 
-function totalRecord() {
-  total.innerHTML = `(${list.length})`;
-}
+  //   let newli = document.createElement('li');
+  //   newli.innerText = document.querySelector('.int').value;
+  //   document.querySelector('#list').appendChild(newli); // 기억하자... 텍스트가 들어갈 html 영역이 반드시 존재해야 한다. 
+  // })
 
-function commentBtnHandler(e) {
-  e.preventDefault();
-  const input = e.target.content;
-  if (input.value === "") {
-    alert("내용을 넣고 등록 버튼을 눌러주세요.");
-    return;
-  }
-  const commentObj = new Comment(input.value);
-  list.push(commentObj);
-  totalRecord();
+  document.querySelector('.btn').addEventListener('click', e => {
 
-  drawing();
-  e.target.reset();
-}
-
-totalRecord();
-commentBtn.addEventListener("submit", commentBtnHandler);
+    let tr = document.createElement('tr');
+    let td = document.createElement('td');
+    tr.appendChild(td)
+    td.innerText = document.querySelector('.int').value;
+    document.querySelector('#list').appendChild(td); // 기억하자... 텍스트가 들어갈 html 영역이 반드시 존재해야 한다. 
+  })
