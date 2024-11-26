@@ -15,10 +15,10 @@
 
 <body>
   <div id="container">
-    <span>
-      <p>TICKET BOOK</p>
+    <span class="listtitle">
+      <h3>TICKET BOOK</h3>
+      <a href="main.html"><img src="/movie/image/home2.png" class="ticket"></a>
     </span>
-    <a href="main.html"></a>
 
     <div class="container text-center">
 
@@ -27,7 +27,7 @@
     <div id="pop_info_1" class="pop_wrap" style="display:none;">
       <div class="popin">
         <p class="dsc">내용</p>
-          <button type="button" class="btn_close">닫기</button>
+        <button type="button" class="btn_close">닫기</button>
       </div>
     </div>
 
@@ -41,18 +41,17 @@
         let template = `        <span class="row">
       <img src="image/${movie.image}" height="300px" class="card-img-top" alt="...">
 
-      <dl>
-        <p>${movie.moviename}</p>
-        <dt>장르</dt>
-        <dd>${movie.genre}</dd>
-        <dt>평점</dt>
-        <dd class="score">${movie.score}</dd>
-        <dt>개봉</dt>
-        <dd>${movie.days}</dd>
-        </dl>
+      <span class="moviesum">
+        <p class="mtitle">${movie.moviename}</p>
+        <p>장르 : ${movie.genre}</p>
+        <p  class="score">평점 : ${movie.score}</p>
+        <p>개봉 : ${movie.days} </p>
+     
+        </span>
        <table>
-        <td><button class="price">예매하기</button></td>
+        <td><button class="price">예매</button></td>
         <td><a href="#pop_info_1" class="btn_open"><button class="intro">소개</button></a></td>
+
    
         </table>
     </span>`
@@ -63,10 +62,10 @@
 
 
 
-      // 팝업창 반복시키는 부분
-      movieList = JSON.parse(localStorage.getItem('movieList'));
+      // // 팝업창 반복시키는 부분
+      // movieList = JSON.parse(localStorage.getItem('movieList'));
 
-    
+
       // console.log(mosum[1]);
       // mosum.forEach(mosum => {
       //   let templatemov = `<span><p>${mosum.moviename}</p></span>`
@@ -76,16 +75,47 @@
 
       // })
 
-    document.querySelectorAll('button.intro').forEach(item=>{
-      item.addEventListener('click', e => {
-        console.log(e.target.closest('span.row').children[1].firstElementChild.innerText);
-        let title = e.target.closest('span.row').children[1].firstElementChild.innerText;
-        let text = 'mosum';
-        if (JSON.stringify(movieList['moviename']) == JSON.stringify(title)){
-          document.querySelector('p.dsc').innerText = text;
-        }
+      console.log(mosum[0]);
+      console.log((mosum[0].moviesum)); // 배열 안의 객체 부를 때 
+
+      // 팝업창에 소개 내용 담기
+
+      // e.target : 이벤트가 일어날 대상.
+      
+      document.querySelectorAll('button.intro').forEach(item => {
+        item.addEventListener('click', e => { //     let intro = e.target.closest('span.row').children[1].firstElementChild : span.row의 첫번째 자손의 첫번째 요소
+          let intro = e.target.closest('span.row').children[1].firstElementChild.innerText;
+          intro = mosum.filter(title => title.moviename == intro)
+          document.querySelector('p.dsc').innerHTML = intro[0].moviesum;
+        })
       })
-    })
+
+
+      // document.querySelectorAll('button.intro').forEach(item => {
+      //   item.addEventListener('click', e => { // 클릭 이벤트
+      //     let intro = e.target.closest('span.row').children[1].firstElementChild.innerText;// mosum[0].moviesum;
+      //     // console.log(mosum)
+      //     intro = mosum.filter(title => title.moviename == intro)
+      //     console.log(intro);
+      //     document.querySelector('p.dsc').innerText = intro[0].moviesum;
+      //   })
+      // })
+
+
+
+      // console.log(e.target.closest('span.row').children[1].firstElementChild.innerText); // 소개 버튼을 눌렀을 때 해당 영화 타이틀 반환
+      // let title = e.target.closest('span.row').children[1].firstElementChild.innerText;
+
+      // document.querySelector('p.dsc').innerText = title;
+      // let title = e.target.closest('span.row').children[1].firstElementChild.innerText;
+      // if (JSON.stringify(movieList['moviename']) == JSON.stringify(title)){
+      // for(let i = 0; i < mosum.length; i++){
+      //   document.querySelector('p.dsc').innerText = mosum[0].moviesum;
+
+      // }
+      // }
+
+      // })
 
 
 
@@ -143,11 +173,11 @@
           document.querySelector(targetID).style.display = 'block';
         });
       }
-      // for (var j = 0; j < target.length; j++) {
-      //   btnPopClose[j].addEventListener('click', function () {
-      //     this.parentNode.parentNode.style.display = 'none';
-      //   });
-      // }
+      for (var j = 0; j < target.length; j++) {
+        btnPopClose[j].addEventListener('click', function () {
+          this.parentNode.parentNode.style.display = 'none';
+        });
+      }
 
       // for (let i = 0; i < target.length; i++) {
       //   target[i].addEventListener('click', function () {

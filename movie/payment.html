@@ -2,15 +2,18 @@
 <html lang="ko">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/payment.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>결제</title>
 
   <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"> -->
 
   <!-- Icon Font Stylesheet -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
@@ -42,16 +45,18 @@
 <body>
   <div class="container-fluid py-5">
     <div class="container py-5">
+      <h3>My Ticket</h3>
       <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">포스터</th>
+              <th scope="col"></th>
               <th scope="col">영화제목</th>
               <th scope="col">가격</th>
               <th scope="col">티켓매수</th>
-              <th scope="col">상영일자</th>
+              <th scope="col">합계</th>
               <th scope="col">삭제</th>
+              <th scope="col">상영일자</th>
             </tr>
           </thead>
           <tbody>
@@ -59,35 +64,35 @@
           </tbody>
         </table>
       </div>
-      <div class="mt-5">
+      <!-- <div class="mt-5">
         <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
         <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">Apply
           Coupon</button>
-      </div>
+      </div> -->
       <div class="row g-4 justify-content-end">
         <div class="col-8"></div>
         <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
-          <div class="bg-light rounded">
-            <div class="p-4">
-              <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
-              <div class="d-flex justify-content-between mb-4">
-                <h5 class="mb-0 me-4">Subtotal:</h5>
-                <p class="mb-0">$96.00</p>
-              </div>
-              <div class="d-flex justify-content-between">
-                <h5 class="mb-0 me-4">Shipping</h5>
-                <div class="">
-                  <p class="mb-0">Flat rate: $3.00</p>
+          <!-- <div class="bg-light rounded"> -->
+            <!-- <div class="p-4"> -->
+              <!-- <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1> -->
+              <!-- <div class="d-flex justify-content-between mb-4"> -->
+                <!-- <h5 class="mb-0 me-4">Subtotal:</h5> -->
+                <!-- <p class="mb-0">$96.00</p> -->
+              <!-- </div> -->
+              <!-- <div class="d-flex justify-content-between"> -->
+                <!-- <h5 class="mb-0 me-4">Shipping</h5> -->
+                <div class="">  
+                  <!-- <p class="mb-0">Flat rate: $3.00</p> -->
                 </div>
               </div>
-              <p class="mb-0 text-end">Shipping to Ukraine.</p>
+              <!-- <p class="mb-0 text-end">Shipping to Ukraine.</p> -->
             </div>
             <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
               <h5 class="mb-0 ps-4 me-4">Total</h5>
               <p class="mb-0 pe-4">$99.00</p>
             </div>
             <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-              type="button">Proceed Checkout</button>
+              type="button">Payment</button>
           </div>
         </div>
       </div>
@@ -99,6 +104,7 @@
 
   const loginId = localStorage.getItem('loginId')
   const myCart = moviecart.filter(cart => cart.userid == loginId);
+ 
   myCart.forEach(cart => {
     let prod = moviecart.filter(prod => cart.moviename == prod.moviename)[0];
     let template = `<tr data-pcode="${cart.code}">
@@ -131,7 +137,7 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="mb-0 mt-4">${prod.price * cart.qty}원</p>
+                                <p class="mb-0 mt-4">${prod.Price * cart.qty}원</p>
                             </td>
                             <td>
                                 <button class="btn btn-md rounded-circle bg-light border mt-4">
@@ -172,7 +178,7 @@ document.querySelectorAll('i.fa-plus').forEach(plus => {
         currentQty--;
         e.target.closest('div.quantity').children[1].value = currentQty;
       } else {
-        alert('1장 이상 구매해 주세요.')
+        alert('1장 이상 선택해 주세요.')
       }
       
       let price = e.target.closest('tr').children[2].firstElementChild.innerText;
@@ -205,7 +211,18 @@ document.querySelectorAll('i.fa-plus').forEach(plus => {
     cartData = cartData.filter(cart => !(cart.pcode == pcode && cart.id == loginId));
     localStorage.setItem('moviecart', JSON.stringify(cartData));
   }
-
+  function totalSum() {
+      // 각 tr의 금액부분("4000 원") -> "4000" -> 4000 으로 변경 후 합계
+      //cart Total 의 Total 위치에 합산 결과 출력
+      let sum = 0;
+      document.querySelectorAll('tr>td:nth-of-type(4)').forEach(item => {
+        let subTotal = item.firstElementChild.innerText;
+        subTotal = parseInt(subTotal.replace("원", ""));
+        sum += subTotal;
+      })
+      document.querySelector('p.mb-0.pe-4').innerText = sum + "원";
+    }
+    totalSum();
 </script>
 </body>
 

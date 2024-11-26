@@ -6,23 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    #container{
-      width: 700px;
+    body {
+      background-image: url(image/reset.jpg);
+      /* background-repeat: no-repeat; */
+      /* background-position: center; */
+      background-size: cover;
+    }
+
+    #container {
+      width: 1500px;
       margin: 0 auto;
+
+    }
+
+    img {
+      width: 1500px;
+      height: 700px;
+      margin-top: 120px;
+    }
+
+    #img {
+      position: relative;
+    }
+
+    #ent {
+      position: absolute;
+      top: 600px;
+      right: 50px;
+    }
+
+    div>a>img {
+      width: 150px;
+      height: 150px;
     }
   </style>
 </head>
 
 <body>
   <div id="container">
-  <a href="login.html">로그인페이지</a>
-  <script src="/movie/member.js"></script>
-  <script>
-    localStorage.setItem('memberList', JSON.stringify(memberList));
-    localStorage.setItem('movieList', JSON.stringify(movieList));
-    localStorage.setItem('mosum', JSON.stringify(mosum));
-    localStorage.setItem('moviecart', JSON.stringify(moviecart));
-  </script>
+    <div id="img">
+
+      <div id="ent">
+        <a href="login.html"><img src="/movie/image/home2.png" alt=""></a>
+      </div>
+    </div>
+    <script src="/movie/member.js"></script>
+    <script>
+      localStorage.setItem('memberList', JSON.stringify(memberList));
+      localStorage.setItem('movieList', JSON.stringify(movieList));
+      localStorage.setItem('mosum', JSON.stringify(mosum));
+      localStorage.setItem('moviecart', JSON.stringify(moviecart));
+    </script>
   </div>
 </body>
 

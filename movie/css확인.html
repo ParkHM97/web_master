@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Movie.css */
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f7f5f5;
+  height: 100%;
+}
+
+html,
+body,
+#zzz,
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 50px;
+  padding-top: 70px;
+  width: 80%;
+}
+.movies .movie {
+  width: 45%;
+  background-color: white;
+  margin-bottom: 70px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-weight: 300;
+  padding: 20px;
+  border-radius: 5px;
+  color: #b2b3bc;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.movie img {
+  position: relative;
+  top: -50px;
+  max-width: 150px;
+  width: 100%;
+  margin-right: 30px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 8px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
+.movie .movie__year,
+.movie .movie__title {
+  margin: 0;
+  font-weight: 300;
+}
+
+.movie .movie__title {
+  margin-bottom: 5px;
+  font-size: 24px;
+  color: #2c2c2c;
+}
+
+.movie .movie__genres {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  margin: 5px 0px;
+}
+.movie .movie__year {
+  margin-right: 10px;
+  font-size: 14px;
+}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <span>
+      <p>TICKET BOOK</p>
+    </span>
+    <a href="main.html"></a>
+
+    <div class="container text-center">
+
+    </div>
+
+   <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script>
+      let movieList = JSON.parse(localStorage.getItem('movieList'));
+      let mosum = JSON.parse(localStorage.getItem('mosum'));
+      console.log(mosum);
+
+
+      movieList.forEach(movie => {
+        let template = `        <span class="row" data-moviename="${movie.moviename}">
+      <img src="image/${movie.image}" height="300px" class="card-img-top" alt="...">
+
+      <dl>
+        <p>${movie.moviename}</p>
+        <dt>장르</dt>
+        <dd>${movie.genre}</dd>
+        <dt>평점</dt>
+        <dd class="score">${movie.score}</dd>
+        <dt>개봉</dt>
+        <dd>${movie.days}</dd>
+      </dl>
+      <table>
+        <td><button class="price">예매하기</button></td>
+        <td><a href="#pop_info_1" class="btn_open"><button class="intro">소개</button></a></td>
+        
+        </table>
+    </span>
+    
+   `
+
+
+        document.querySelector('div.text-center').insertAdjacentHTML('beforeend', template);
+      })
+
+</body>
+</html>
