@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="payment.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>결제</title>
+  <title>예매 내역</title>
 
   <!-- Google Web Fonts -->
   <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +56,6 @@
               <th scope="col">티켓매수</th>
               <th scope="col">합계</th>
               <th scope="col">삭제</th>
-              <th scope="col">상영일자</th>
             </tr>
           </thead>
           <tbody>
@@ -99,26 +98,28 @@
     </div>
   </div>
 <script>
-  let moviecart = JSON.parse(localStorage.getItem('moviecart'));
-  const movieList = JSON.parse(localStorage.getItem('movieList'));
+  let cartData = JSON.parse(localStorage.getItem('cartData'));
+  const moviecart = JSON.parse(localStorage.getItem('moviecart'));
 
   const loginId = localStorage.getItem('loginId')
-  const myCart = moviecart.filter(cart => cart.userid == loginId);
- 
+  const loginName = localStorage.getItem('loginName')
+  document.querySelector('h3').innerHTML += `(${loginId})`; // 로그인한 아이디 출력
+  
+  const myCart = cartData.filter(cart => cart.userid == loginId);  
   myCart.forEach(cart => {
-    let prod = moviecart.filter(prod => cart.pcode == prod.pcode)[0];
-    let template = `<tr data-pcode="${cart.code}">
+    let prodInfo = moviecart.filter(prod => cart.pcode == prod.pcode)[0];
+    let template = `<tr data-pcode="${cart.pcode}">
                             <th scope="row">
                                 <div class="d-flex align-items-center">
-                                    <img src="image/${prod.image}"
+                                    <img src="image/${prodInfo.image}"
                                         style="width: 100px; height: 130px;" alt="">
                                 </div>
                             </th>
                             <td>
-                                <p class="mb-0 mt-4">${prod.moviename}</p>
+                                <p class="mb-0 mt-4">${prodInfo.moviename}</p>
                             </td>
                             <td>
-                                <p class="mb-0 mt-4">${prod.Price} 원</p>
+                                <p class="mb-0 mt-4">${prodInfo.price} 원</p>
                             </td>
                             <td>
                                 <div class="input-group quantity mt-4" style="width: 100px;">
@@ -137,7 +138,7 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="mb-0 mt-4">${prod.Price * cart.qty}원</p>
+                                <p class="mb-0 mt-4">${prodInfo.price * cart.qty}원</p>
                             </td>
                             <td>
                                 <button class="btn btn-md rounded-circle bg-light border mt-4">
@@ -162,6 +163,8 @@ document.querySelectorAll('i.fa-plus').forEach(plus => {
     // 가격
     let price = e.target.closest('tr').children[2].firstElementChild.innerText;
     price = parseInt(price.replace('원', ''));
+    console.dir(price * currentQty);
+
     e.target.closest('tr').children[4].firstElementChild.innerText = price * currentQty + '원';
     totalSum();
     saveQty(loginId, pcode, 1);
@@ -201,15 +204,15 @@ document.querySelectorAll('i.fa-plus').forEach(plus => {
   })
   function saveQty(loginId, pcode, qty) {
     cartData.forEach(cart => {
-      if(cart.id == loginId && cart.pcode == pcode) {
+      if(cart.userid == loginId && cart.pcode == pcode) {
         cart.qty += qty; 
       }
     });
-    localStorage.setItem('moviecart', JSON.stringify(moviecart));
+    localStorage.setItem('cartData', JSON.stringify(cartData));
   }
   function removeCart(loginId, pcode) {
-    cartData = cartData.filter(cart => !(cart.pcode == pcode && cart.id == loginId));
-    localStorage.setItem('moviecart', JSON.stringify(cartData));
+    cartData = cartData.filter(cart => !(cart.pcode == pcode && cart.userid == loginId));
+    localStorage.setItem('cartData', JSON.stringify(cartData));
   }
   function totalSum() {
       // 각 tr의 금액부분("4000 원") -> "4000" -> 4000 으로 변경 후 합계

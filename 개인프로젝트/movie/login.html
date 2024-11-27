@@ -82,15 +82,15 @@
    console.log(memberList); // 콘솔에 출력된 상태 
   //로그인이 되려면... memberData 배열에 있는 값과 입력값이 동일해야 한다. 
   document.querySelector('td>button').addEventListener('click', login => { // button을 클릭했을 때 이벤트 실행      
-    let uid = document.querySelector('#userid').value;
-    let upw = document.querySelector('#userpw').value;
-    let loginuserInfo = memberList.filter(member => member.userid == uid && member.userpw == upw);
+    let userid = document.querySelector('#userid').value;
+    let userpw = document.querySelector('#userpw').value;
+    let loginuserInfo = memberList.filter(member => member.userid == userid && member.userpw == userpw);
     // main.html에서 localstorage 저장!
     // memberData에서 member의 userid 와 입력한 uid가 같고, member의 userpw와 입력한 upw가 같은 값을 추출한다.
     // 그래서 loginuserInfo에 그 값을 담음 > loginuserInfo라는 배열에 해당값이 인덱스 0번째로 들어가게 됨, 
     // 1개의 값이 들어가 있기 때문에 loginuserInfo.length의 값은 0 이상이 되어서 true 값을 가지게 된다.
     if (loginuserInfo.length) {
-      localStorage.setItem('loginId', uid); // localstorage에서 userid를 가져와 loginId에 넣는다.
+      localStorage.setItem('loginId', userid); // localstorage에서 userid를 가져와 loginId에 넣는다.
       localStorage.setItem('loginName', loginuserInfo[0].uname); // loginuserInfo 인덱스의 유저 네임 (로그인한 유저 네임을 불러옴)
       location.href = 'main.html';
     } else {

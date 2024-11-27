@@ -33,12 +33,15 @@
 
     <script>
       let movieList = JSON.parse(localStorage.getItem('movieList'));
+      let cartData = JSON.parse(localStorage.getItem('cartData'));
+      let movieCart = JSON.parse(localStorage.getItem('movieCart'));
       let mosum = JSON.parse(localStorage.getItem('mosum'));
+
       // console.log(mosum);
 
 
       movieList.forEach(movie => {
-        let template = `        <span class="row">
+        let template = `        <span class="row" data-pcode="${movie.pcode}">
       <img src="image/${movie.image}" height="300px" class="card-img-top" alt="...">
 
       <span class="moviesum">
@@ -59,6 +62,41 @@
 
         document.querySelector('div.text-center').insertAdjacentHTML('beforeend', template);
       })
+
+      // 예매하기 버튼 만들기.
+
+      document.querySelectorAll('button.price').forEach(item => {
+        item.addEventListener('click', e => {
+          console.log(e);
+          e.preventDefault();
+          let userid = localStorage.getItem('loginId');
+          let pcode = e.target.closest('span.row').getAttribute('data-pcode');
+          // console.log(price, userid, pcode);
+          let result = cartData.filter(cart => cart.userid == userid && cart.pcode == pcode);
+          if (result.length) {
+            cartData.forEach(cart => {
+              if (cart.userid == userid && cart.pcode == pcode) {
+                cart.qty++;
+              }
+              return;
+            })
+          } else {
+            cartData.push({
+              userid: userid,
+              pcode: pcode,
+              qty: 1
+            })
+          }
+          localStorage.setItem('cartData', JSON.stringify(cartData));
+        })
+      })
+
+
+
+
+
+
+
 
 
 
@@ -81,13 +119,14 @@
       // 팝업창에 소개 내용 담기
 
       // e.target : 이벤트가 일어날 대상.
-      
+
       document.querySelectorAll('button.intro').forEach(item => {
-        item.addEventListener('click', e => { //     let intro = e.target.closest('span.row').children[1].firstElementChild : span.row의 첫번째 자손의 첫번째 요소
-          let intro = e.target.closest('span.row').children[1].firstElementChild.innerText;
-          intro = mosum.filter(title => title.moviename == intro)
-          document.querySelector('p.dsc').innerHTML = intro[0].moviesum;
-        })
+        item.addEventListener('click',
+          e => { //     let intro = e.target.closest('span.row').children[1].firstElementChild : span.row의 첫번째 자손의 첫번째 요소
+            let intro = e.target.closest('span.row').children[1].firstElementChild.innerText;
+            intro = mosum.filter(title => title.moviename == intro)
+            document.querySelector('p.dsc').innerHTML = intro[0].moviesum;
+          })
       })
 
 

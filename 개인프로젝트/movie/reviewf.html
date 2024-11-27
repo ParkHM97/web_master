@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Object Model</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <style>
+  
+  </style> 
+</head>
+
+<body>
+  <div id="container">
+    <h3>REVIEW</h3>
+    <!-- <ul>
+    <li>복숭아</li>
+    <li>레몬</li>
+    <li>청포도</li>
+  </ul> basic.js에서 한 내용-->
+    <div id="show">
+      <!-- <p>Welcome</p><button>삭제</button> 결과 : 아래 1-1 실습 -->
+      <table class="table">
+        <tr>
+          <th>후기</th>
+          <td><input type="text" class="form-control" name="friendName" placeholder="후기를 입력해 주세요.">
+          </td>
+        </tr>
+        <tr>
+          <th>영화제목</th>
+          <td><select name="friendPhone" class="moviename">
+              <option value="Sound of Music">Sound of Music</option>
+              <option value="하울의 움직이는 성">하울의 움직이는 성</option>
+              <option value="청설">청설</option>
+              <option value="천공의 성 라퓨타">천공의 성 라퓨타</option>
+              <option value="파묘">파묘</option>
+              <option value="명량">명량</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>날짜</th>
+          <td><input type="date" class="form-control" name="friendBirth"></td>
+        </tr>
+        <tr>
+          <th>평점</th>
+          <td>
+            <!-- <h5 class="vud">평점: <span id="value" class="value"></span>점</h4>  -->
+            <select name="bloodType" class="moviename">
+              <option value="★★★★★">★★★★★</option>
+              <option value="★★★★">★★★★</option>
+              <option value="★★★">★★★</option>
+              <option value="★★">★★</option>
+              <option value="★">★</option>
+
+            </select>
+
+            <!-- <select class = "form-control" name="bloodType">
+            <option value="A">A형</option>
+            <option value="B">B형</option>
+            <option value="O">O형</option>
+            <option value="AB">AB형</option>
+          </select> -->
+          </td>
+        </tr>
+        <tr>
+          <td align="center" colspan="2"><button class="btn btn-primary">추가</button>
+            <!--button을 누르면 값이 추가되는 기능 만들기~-->
+            <!-- <button class="btn btn-warning" >수정</button> button을 누르면 값이 수정되는 기능 만들기~
+        <button class="btn btn-danger" >선택삭제</button>
+        <button class="btn btn-info" >정보저장</button> -->
+          </td>
+        </tr>
+
+      </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><input type="checkbox"></th>
+            <th>후기</th>
+            <th>영화제목</th>
+            <th>날짜</th>
+            <th>평점</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody id="list">
+          <!-- <tr>
+        <td>박혜원</td>
+        <td>010-1111-1111</td>
+        <td>1997-12-26</td>
+      </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- ul을 삭제해도 html에서는 적당히 문법에 맞춰 보여줌  -->
+
+
+
+
+
+  <!-- <script src="/Dom/JS/data.js"> </script> -->
+  <script src="/movie/review2.js"> </script>
+  <script>
+
+
+  </script>
+</body>
+
+</html>

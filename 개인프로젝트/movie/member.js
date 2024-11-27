@@ -133,8 +133,7 @@ const movieList = [{
     “전부 잘 알 거야… 묘 하나 잘못 건들면 어떻게 되는지.”<br>
     절대 사람이 묻힐 수 없는 악지에 자리한 기이한 묘. <br> 
     상덕은 불길한 기운을 느끼고 제안을 거절하지만, 화림의 설득으로 결국 파묘가 시작되고… <br> 
-    <br>나와서는 안될 것이 나왔다.</p>
-   `
+    <br>나와서는 안될 것이 나왔다.</p>`
   },
   {
     pcode: 'M06',
@@ -150,47 +149,77 @@ const movieList = [{
      왜군 수장으로 나서자 조선은 더욱 술렁인다. 330척에 달하는 왜군의 배가 속속 집결하고 
      압도적인 수의 열세에 모두가 패배를 직감하는 순간, 이순신 장군은 단 12척의 배를 
      이끌고 명량 바다를 향해 나서는데…! 
-     <br>12척의 조선 vs 330척의 왜군 역사를 바꾼 위대한 전쟁이 시작된다!</p>
-    `
+     <br>12척의 조선 vs 330척의 왜군 역사를 바꾼 위대한 전쟁이 시작된다!</p>`
   }]
   const moviecart = [{
-    userid: 'user01',
+    pcode: 'M02',
+    // userid: 'user01',
     moviename: '하울의 움직이는 성',
-    Price: 12000,
-    image: 'howl.jpg',
-    age: 'adult',
+    price: 12000,
+    image: 'howl.jpg'
+    // age: 'adult',
+    // qty: 1
+  },
+  {
+    pcode: 'M04',
+    // userid: 'user01',
+    moviename: '천공의 성 라퓨타',
+    price: 12000,
+    image: 'Rafuta.jpg'
+    // age: 'child',
+    // qty: 2
+  },
+  {
+    pcode: 'M03',
+    // userid: 'user02',
+    moviename: '청설',
+    price: 12000,
+    image: 'cheong.jpg'
+    // age: 'adult',
+    // qty: 2
+  },
+  {
+    pcode: 'M05',
+    // userid: 'user03',
+    moviename: '파묘',
+    price: 12000,
+    image: 'pamyo.jpg'
+    // age: 'adult',
+    // qty: 3
+  },
+  {
+    pcode: 'M06',
+    // userid: 'user03',
+    moviename: '명량',
+    price: 8000,
+    image: 'myeong.jpg'
+    // age: 'child',
+    // qty: 2
+  }]
+  const cartData = [{
+    userid: 'user01',
+    pcode: 'M02',
     qty: 1
   },
   {
     userid: 'user01',
-    moviename: '하울의 움직이는 성',
-    Price: 8000,
-    image: 'howl.jpg',
-    age: 'child',
+    pcode: 'M04',
     qty: 2
   },
   {
-    post: 'user02',
-    moviename: '청설',
-    Price: 12000,
-    image: 'cheong.jpg',
-    age: 'adult',
+    userid: 'user02',
+    pcode: 'M03',
     qty: 2
   },
   {
-    post: 'user03',
-    moviename: '파묘',
-    Price: 12000,
-    image: 'pamyo.jpg',
-    age: 'adult',
+    userid: 'user03',
+    pcode: 'M03',
+    qty: 2
+  },
+  {
+    userid: 'user03',
+    pcode: 'M05',
     qty: 3
-  },
-  {
-    post: 'user03',
-    moviename: '천공의 성 라퓨타',
-    Price: 8000,
-    age: 'child',
-    qty: 2
   }]
 
   function makeRow(obj = {}) {
